@@ -1,0 +1,252 @@
+<!--index.wxml-->
+<view class=" index">
+  <block>
+    <view class='header'>
+      <view class='header-title'>
+        <view>
+          <image class='herder-title-img' src='/assets/images/dj.png' />
+        </view>
+        <view class='header-list'>
+          <view class='header-list-content'>
+            <view class='header-text'>
+              <image class='herder-text-img' src='/assets/images/icon/brand@2x.png' />
+              <text class='header-text-title'>聚美服饰</text>
+            </view>
+            <text class='header-list-tetx'>户外、运动、女士内衣</text>
+            <view class='header-adre'>
+              <image class='header-adre-img' src='/assets/images/icon/decrease_1@2x.png' />
+              <text class='header-adre-title'>双十一期间满300减50</text>
+              <view class='header-readss'>
+                <text>免邮</text>
+                <image src=''></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='header-gg'>
+        <image class='header-gg-img' src='/assets/images/icon/bulletin@2x.png' />
+        <text class='header-gg-title'>羽絨棉服男yifu棉衣男装品牌官方旗舰店官网文艺港仔港风名牌外套 ...</text>
+        <image src='' />
+      </view>
+    </view>
+  </block>
+  <block>
+    <view class='nav'>
+      <view class='nav-list' wx:for="{{nav}}">
+        <view class='{{index==navactive ? "nav-active" : ""}}' data-current="{{index}}" catchtap='checkCurrent' data-postid="{{index}}">{{item.title}}</view>
+      </view>
+    </view>
+  </block>
+
+  <swiper current="{{navactive}}" style="height:350px;" duration="300" bindchange="bindchange">
+    <swiper-item>
+      <view class='content-list'>
+        <scroll-view scroll-y="flase" style='height:634rpx'>
+          <block wx:for="{{listData}}" wx:for-item="item" wx:for-index="index">
+              <view class='{{index==activeIndex ? "active content-list-left" : "content-list-left"}}' bindtap='getpostid' data-postid="{{index}}">
+                <view class='content-text'>{{item.text}}</view>
+              </view>
+          </block>
+        </scroll-view>
+        <scroll-view scroll-y="flase" style='height:{{scrollHeight}}rpx;' scroll-top="{{scrllTop}}" bindscrolltolower="getupscrollower" bindscroll="scroll">
+          <block>
+            <view class=' content-list-right'>
+              <view class='content-list-stare'>
+                <view class='content-stare' wx:for="{{postData.list}}" catchtap='jumpup' data-index="{{index}}" data-id="{{value}}">
+                  <view class='content-title'>
+                    <text>{{item.text}}</text>
+                  </view>
+                  <view>
+                    <view class='content-list-content' wx:for-index="index">
+                      <view class='content-list-image'>
+                        <image class='content-list-img' src='{{item.images}}' />
+                      </view>
+                      <view class='content-list-text'>
+                        <text class='content-text-title'>{{item.title}}</text>
+                        <text>{{item.category}}</text>
+                        <text>月售1132份 好评率100%</text>
+                        <view class='content-add-list'>
+                          <text>￥{{item.rate}}</text>
+                          <view class='content-list-add-img' catchtap='addlistdata' data-index="{{index}}">
+                            <image class='content-list-add' src='../../assets/images/icon/add.png' />
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+
+      <scroll-view scroll-y="flase" style='height:634rpx'>
+        <view class='content-assess'>
+          <view class='assess-header'>
+            <view class='assess-left'>
+              <text class='left-num'>3.9</text>
+              <text class='left-text'>综合评分</text>
+              <text class='left-chance'>高于周边商家69.2%</text>
+            </view>
+            <view class='assess-right'>
+              <view class='right-list' wx:for="{{assessdata}}">
+                <text>服务态度</text>
+                <view class='right-img' wx:for="{{assessimg}}">
+                  <image style='width:25rpx;height:24rpx;' src='{{item.images}}' />
+                </view>
+                <text class='right-num'>{{item.number}}</text>
+              </view>
+              <view class='right-time'>
+                <text>送达时间</text>
+                <text class='time'>40分钟</text>
+              </view>
+            </view>
+          </view>
+          <view class=' assess'>
+            <view class='assess-content'>
+              <view class=' assess-title'>商品评价</view>
+              <view class=' assess-list'>
+                <view class='list-total'>全部 57</view>
+                <view class='list-groom'>推荐30</view>
+                <view class='list-make'>吐槽60</view>
+              </view>
+              <view>
+                <view class='comment' wx:for="{{comment}}">
+                  <view class='comment-list'>
+                    <view class='comment-time'>2016-07-07 12:34</view>
+                    <view class='comment-name'>3*******2</view>
+                    <view class='comment-img'>
+                      <image style='width:26rpx; height:26rpx;' src='../../assets/images/tou.png' />
+                    </view>
+                  </view>
+                  <view class='comment-content'>
+                    <view>
+                      <image class='comment-content-img' style='width:23rpx; height:20rpx;' src='../../assets/images/icon/zan.png' />
+                    </view>
+                    <view class='comment-content-text'>{{item.text}}</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+
+    <swiper-item>
+      <scroll-view scroll-y="flase" style='height:634rpx'>
+        <view class=' seller'>
+          <view class='business'>
+            <view class='business-text'>商家图片</view>
+            <scroll-view scroll-x="flase" style='width:750rpx;'>
+              <view>
+                <image class='business-img' style='width:240rpx; height:180rpx;' src='../../assets/images/business1.png' />
+                <image class='business-img' style='width:240rpx; height:180rpx;' src='../../assets/images/business2.png' />
+                <image class='business-img' style='width:240rpx; height:180rpx;' src='../../assets/images/business3.png' />
+              </view>
+            </scroll-view>
+          </view>
+          <view class='seller-header'>
+            <view class='seller-header-left'>
+              <text>聚美服饰</text>
+              <view class='seller-header-left-turnover'>
+                <view>
+                  <image style='width:25rpx;height:24rpx;' src='../../assets/images/icon/star36_on@3x.png' />
+                  <image style='width:25rpx;height:24rpx;' src='../../assets/images/icon/star36_on@3x.png' />
+                  <image style='width:25rpx;height:24rpx;' src='../../assets/images/icon/star36_on@3x.png' />
+                  <image style='width:25rpx;height:24rpx;' src='../../assets/images/icon/star36_on@3x.png' />
+                  <image style='width:25rpx;height:24rpx;' src='../../assets/images/icon/star36_on@3x.png' />
+                </view>
+                <text class='turnover-text'>(661)    月售690单</text>
+              </view>
+            </view>
+            <view class='seller-header-right'>
+              <view class='seller-header-right-img'>
+                <image style='width:41rpx; height:37rpx;' src='../../assets/images/icon/collect.png' />
+              </view>
+              <text>已收藏</text>
+            </view>
+          </view>
+          <view class='seller-delivery'>
+            <view class='seller-delivery-start'>
+              <text class='delivery-start-text'>顺丰快递</text>
+              <text>1-2天</text>
+            </view>
+            <view class='seller-delivery-start'>
+              <text class='delivery-start-text'>店铺地址</text>
+              <text>杭州</text>
+            </view>
+            <view class='seller-delivery-start'>
+              <text class='delivery-start-text'>退款期限</text>
+              <text>7天</text>
+            </view>
+          </view>
+          <view class='notice'>
+            <view class='notice-activity'>
+              <text>公告与活动</text>
+              <text class='activity-text'>消费者在天猫购买带有“全国联保”标识商品后，除可以按照《中华人民共和国产品质量法》《中华人民共和国消费者权益保护法》以及国家关于产品修理、更换、退货的规定，享受商家提供的相应服务外，还可以享受到：向该商品所属品牌商（厂家）或第三方就机器故障进行在线咨询，对故障机器一键报修，或可以查阅品牌商相应售后信息的服务</text>
+            </view>
+            <view class='notice-offer' wx:for="{{notice}}">
+              <view>
+                <image style='width:42rpx; height:42rpx;' src='{{item.images}}' />
+              </view>
+              <text class='notice-offer-text'>{{item.text}}</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+
+  <view class='content-footer'>
+    <view class='footer-left' wx:for-index="index">
+      <view class='footer-gw' catchtap='showment'>
+        <image class='footer-left-img' wx:if="{{images==0}}" src='../../assets/images/gowu.png' />
+        <image class='footer-left-img' wx:if="{{images==1}}" src='../../assets/images/gowu2.png' />
+        <!--<image class='footer-left-img' src='{{item.images}}' />-->
+      </view>
+      <view class='footer-images'></view>
+      <text class='footer-text' data-index='{{index}}'>￥{{money}}</text>
+      <text class='footer-ps'>另需配送费￥4元</text>
+    </view>
+    <view class='footer-right'>
+      <image wx:if="{{pay==0}}" class='footer-right-img' src='../../assets/images/jiesuan1.png' />
+      <image wx:if="{{pay==1}}" class='footer-right-img' src='../../assets/images/jiesuan.png' />
+    </view>
+  </view>
+  <view class='mask' hidden='{{maskFlag}}'>
+    <view class='masking' bindtap='showFlag'></view>
+    <view class='mask-list'>
+      <view class='mask-nav'>
+        <view class='mask-gw'>购物车</view>
+        <view class='mask-del' catchtap='removeup'>清空</view>
+      </view>
+      <view>
+        <scroll-view scroll-y="true" style='height:334rpx;'>
+          <view class='list-goods' wx:for="{{goodsData}}" wx:for-index="index">
+            <view class='goods-title'>{{item.title}}</view>
+            <view class='goods-news'>
+              <view class='goods-rate'>{{item.rate}}</view>
+              <view>
+                <image class='goods-img' catchtap='addnum' data-index="{{index}}" src='../../assets/images/icon/add.png' />
+              </view>
+              <view>
+                <text class='goods-number'>{{item.number}}</text>
+              </view>
+              <view>
+                <image class='goods-img' catchtap='deladdlist' data-index="{{index}}" src='../../assets/images/icon/del.png' />
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+
+  </view>
+</view>

@@ -1,0 +1,69 @@
+<view class='details'>
+  <view class='details-list'>
+    <swiper class='delimg' indicator-dots="true" autoplay="true" interval="3000" duration="300" circular="true">
+      <view >
+        <swiper-item wx:for="{{detadata.delimages}}">
+          <image class='details-img' src='{{item.image}}' />
+        </swiper-item>
+      </view>
+    </swiper>
+    <view class='list'>
+      <view class='list-title'>{{detadata.title}}</view>
+      <view class='list-evaluate'>月售1132份 好评率100%</view>
+      <view class='list-prix'>
+        <text class='prix'>￥{{detadata.rate}}</text>
+        <view class='list-img'>
+          <image class='prix-img' src='../../assets/images/addlist.png' />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='introduce'>
+    <view class='introduce-list'>
+      <text class='introduce-title'>商品介绍</text>
+      <text class='introduce-content'>{{detadata.content}}</text>
+    </view>
+  </view>
+  <view class=' assess'>
+    <view class='assess-content'>
+      <view class=' assess-title'>商品评价</view>
+      <view class=' assess-list'>
+        <view class='list-total'>全部 57</view>
+        <view class='list-groom'>推荐30</view>
+        <view class='list-make'>吐槽60</view>
+      </view>
+      <view>
+        <view class='comment'>
+          <view class='comment-list'>
+            <view class='comment-time'>2016-07-07 12:34</view>
+            <view class='comment-name'>3*******2</view>
+            <view class='comment-img'>
+              <image style='width:26rpx; height:26rpx;' src='../../assets/images/tou.png' />
+            </view>
+          </view>
+          <view class='comment-content'>
+            <view>
+              <image style='width:23rpx; height:20rpx;' src='../../assets/images/icon/zan.png' />
+            </view>
+            <view class='content-text'>'给儿子买的，穿在身上很好看，刚刚好</view>
+          </view>
+        </view>
+        <view class='comment'>
+          <view class='comment-list'>
+            <view class='comment-time'>2016-07-07 12:34</view>
+            <view class='comment-name'>3*******2</view>
+            <view class='comment-img'>
+              <image style='width:26rpx; height:26rpx;' src='../../assets/images/tou.png' />
+            </view>
+          </view>
+          <view class='comment-content'>
+            <view>
+              <image style='width:23rpx; height:20rpx;' src='../../assets/images/icon/zan.png' />
+            </view>
+            <view class='content-text'>衣服收到了。很好 非常的喜欢。上身效果也很好。 我也向我朋友推荐了 他们也买了。 都说很好</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
